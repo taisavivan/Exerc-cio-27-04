@@ -15,6 +15,9 @@ public class AppAgenda  {
 		Agenda agenda = new Agenda();
 		Pessoa objPessoa;
 		String nome;
+		int idade;
+		double altura;
+		int index;
 		
 		
 							
@@ -28,13 +31,14 @@ public class AppAgenda  {
 					System.out.println("Digite o nome: ");
 					nome = scanString.nextLine();
 					System.out.println("Digite a idade: ");
-					int idade = scan.nextInt();
+					idade = scan.nextInt();
 					System.out.println("Digite a altura: ");
-					double altura = scan.nextDouble();
-					
+					altura = scan.nextDouble();
+								
 					objPessoa = new Pessoa(nome, idade, altura);
 					
 					agenda.armazenaPessoa(objPessoa);
+					
 					
 					break;		
 					
@@ -42,20 +46,29 @@ public class AppAgenda  {
 					System.out.println("Remover Contato");
 					System.out.println("Digite o nome: ");
 					nome = scanString.nextLine();
-						Agenda.removePessoa(nome);
+						agenda.removePessoa(nome);
 						
 					break;
 				
 				case 3:
+					System.out.println("Buscar Contato");
+					System.out.println("Digite o nome: ");
+					nome = scanString.nextLine();
+						agenda.buscaPessoa(nome);
+
 					break;
 				
 				case 4:
 					System.out.println("Imprimir Agenda");
-					System.out.println(Agenda.imprimeAgenda());
+					System.out.println(agenda.imprimeAgenda());
 														
 					break;
 				
 				case 5:
+					System.out.println("Imprimir Contato");
+					System.out.println("Digite o número do contato: ");
+					index = scan.nextInt();
+						agenda.imprimePessoa(index);
 					break;
 					
 				default:

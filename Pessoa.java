@@ -4,10 +4,10 @@ package luizacode.exercicios2;
 
 public class Pessoa {
 	
-	public static String nome;
-	public static String dataNascimento;
-	public static double altura;
-	public static int idade;
+	private String nome;
+	private String dataNascimento;
+	private double altura;
+	private int idade;
 
 	
 	

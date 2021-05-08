@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Agenda extends Pessoa {
 	
-		private static ArrayList<Pessoa> contatos = new ArrayList<>(10);
+		private ArrayList<Pessoa> contatos = new ArrayList<>(10);
 		
 				
 		
@@ -15,26 +15,25 @@ public class Agenda extends Pessoa {
 			} else {
 				System.out.println("Não há espaço na agenda. Remova um contato.");
 			}
-			
-		}
+				}
 
 		
-		public static void removePessoa(String nome) {
+		public void removePessoa(String nome) {
 			for(Pessoa pessoa : contatos) {
 				if(pessoa.getNome().equalsIgnoreCase(nome)) {
 					contatos.remove(pessoa);
 									
 				}
 			}
-		
-
-			
 		}
 
 		
 		public Pessoa buscaPessoa(String nome) {
 			for(Pessoa pessoa : contatos) {
 				if(pessoa.getNome().equalsIgnoreCase(nome)) {
+					System.out.println("Nome: " + pessoa.getNome());
+					System.out.println("Idade: " + pessoa.getIdade());
+					System.out.println("Altura: " + pessoa.getAltura());
 					return pessoa;
 				}
 			}
@@ -42,7 +41,7 @@ public class Agenda extends Pessoa {
 		}
 
 		
-		public static String imprimeAgenda() {
+		public String imprimeAgenda() {
 			String saida = "";
 			int i = 1;
 			for(Pessoa pessoa : contatos) {
@@ -57,13 +56,14 @@ public class Agenda extends Pessoa {
 
 		
 		public void imprimePessoa(int index) {
-			int i = 1;
-			for(Pessoa pessoa : contatos) {
-				if(i == index) {
-					System.out.println("Contato: " + index);
-					System.out.println("Nome: " + getNome());
-					System.out.println("Idade: " + getIdade());
-					System.out.println("Altura: " + getAltura());
+			int i = 0;
+			for(int j = 0; j < contatos.size(); j++) {
+				Pessoa pessoa = contatos.get(j);
+				if(j == index) {
+					System.out.println("Contato: " + i);
+					System.out.println("Nome: " + pessoa.getNome());
+					System.out.println("Idade: " + pessoa.getIdade());
+					System.out.println("Altura: " + pessoa.getAltura());
 					return;
 				}
 			}
